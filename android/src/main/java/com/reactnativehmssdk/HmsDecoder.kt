@@ -277,7 +277,9 @@ object HmsDecoder {
 
         var auxiliaryTracks: WritableArray = Arguments.createArray();
         for (track in hmsRemotePeer.auxiliaryTracks) {
-          auxiliaryTracks.pushMap(getHmsTrack(track))
+          if(track.type == HMSTrackType.VIDEO) {
+            auxiliaryTracks.pushMap(getHmsTrack(track))
+          }
         }
         peer.putArray("auxiliaryTracks", auxiliaryTracks);
 

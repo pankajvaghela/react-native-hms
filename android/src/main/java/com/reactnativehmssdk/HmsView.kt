@@ -5,6 +5,8 @@ import android.widget.FrameLayout
 import com.facebook.react.bridge.LifecycleEventListener
 import com.facebook.react.bridge.ReactContext
 import live.hms.video.media.tracks.HMSLocalVideoTrack
+import live.hms.video.media.tracks.HMSTrackSource
+import live.hms.video.media.tracks.HMSTrackType
 import live.hms.video.media.tracks.HMSVideoTrack
 import live.hms.video.sdk.HMSSDK
 import org.webrtc.SurfaceViewRenderer
@@ -53,7 +55,7 @@ class HmsView(
             val auxiliaryTracks = peer.auxiliaryTracks
             for (track in auxiliaryTracks) {
               val auxTrackId = track.trackId
-              if(trackId == auxTrackId && track.source == "screen" && !track.isMute){
+              if(trackId == auxTrackId && track.source == HMSTrackSource.SCREEN && track.type == HMSTrackType.VIDEO && !track.isMute){
                 videoTrack = track as HMSVideoTrack
                 return
               }
