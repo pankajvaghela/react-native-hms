@@ -22,7 +22,7 @@ class HmssdkDisplayView: UIView {
     
     lazy var videoView: HMSVideoView = {
         let hmsView = HMSVideoView()
-        hmsView.videoContentMode = .scaleAspectFill
+        hmsView.videoContentMode = .scaleAspectFit
         return hmsView
         // return HMSVideoView()
     }()
