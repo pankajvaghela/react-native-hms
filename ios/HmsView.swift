@@ -21,7 +21,10 @@ class HmsView: RCTViewManager {
 class HmssdkDisplayView: UIView {
     
     lazy var videoView: HMSVideoView = {
-        return HMSVideoView()
+        let hmsView = HMSVideoView()
+        hmsView.videoContentMode = .scaleAspectFill
+        return hmsView
+        // return HMSVideoView()
     }()
     
     var hms: HMSSDK?
